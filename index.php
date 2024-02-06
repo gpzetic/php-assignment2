@@ -9,13 +9,12 @@
 	function isEligible($data) {
 		$output = Array();
 		for ($i = 0; $i < count($values); $i ++) {
-			${$values[$i]} = $values[$i];
-			if (in_array(${$values[$i]}, $reqValues[$i])) {
-				array_push(${$values[$i]}, $output);
-			}
+			$v = $data["{$values[$i]}"];
+			if (is_numeric($v) && $v >= $reqValues[$i]) {}
+			else if (in_array($v, $reqValues[$i])) {}
 			else return false;
 		}
-		return $output;
+		return true;
 		//$diploma = Array("CS", "CP");
 		//$experience = 4;
 		//$gradYear = 2018;
