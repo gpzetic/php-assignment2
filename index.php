@@ -10,8 +10,10 @@
 		$output = Array();
 		for ($i = 0; $i < count($values); $i ++) {
 			$v = $data["{$values[$i]}"];
-			if (is_numeric($v) && $v >= $reqValues[$i]) {}
-			else if (in_array($v, $reqValues[$i])) {}
+			$r = $reqValues[$i];
+			if ($i == 1 && $v >= $r[0]) {}
+			else if ($i == 2 && $v <= $r[0]) {}
+			else if (in_array($v, $r)) {}
 			else return false;
 		}
 		return true;
@@ -29,7 +31,7 @@
 			"skill" => ""
 		);
 		for ($i = 0; $i < count($values); $i ++) {
-			$inputs[$values[$i]] = readline("Enter your ".$values[$i]);
+			$inputs[$values[$i]] = readline("Enter your ".$values[$i].': ');
 		}
 		//$inputs["diploma"] = readline("Enter your diploma: ");
 		//$inputs["experience"] = readline("Enter your years of experience: ");
