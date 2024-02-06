@@ -1,3 +1,4 @@
+
 <?php
 	$values = Array("diploma", "experience", "gradYear", "skill");
 	$reqValues = Array(
@@ -6,7 +7,8 @@
 		Array(2018),
 		Array("PHP", "Java")
 	);
-	function isEligible($data) {
+
+	function isEligible($data, $values, $reqValues) {
 		$output = Array();
 		for ($i = 0; $i < count($values); $i ++) {
 			$v = $data["{$values[$i]}"];
@@ -23,7 +25,7 @@
 		//$skill = Array("PHP", "Java");	
 		//if (in_array($data["diploma"], $diploma))	
 	}
-	function getInput() {
+	function getInput($values) {
 		$inputs = Array(
 			"diploma" => "",
 			"experience" => 0,
@@ -40,7 +42,7 @@
 		return $inputs;
 	}	
 	
-	if (isEligible(getInput())) {
+	if (isEligible(getInput($values), $values, $reqValues)) {
 		echo "You are eligible for the job, your interview is in one week!";
 	} else echo "We are sorry, we moved on with other candidates";
 
